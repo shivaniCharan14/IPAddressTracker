@@ -1,0 +1,330 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: hsl(0, 0%, 17%);
+  --secondary-color: hsl(0, 0%, 59%);
+  --accent-color: hsl(220, 90%, 56%);
+  --background-color: hsl(0, 0%, 95%);
+}
+
+h1, h2, h3 {
+  color: var(--primary-color);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+p {
+  color: var(--secondary-color);
+}
+html{
+   font-size: 62.5%;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+   font-family: "Rubik" , sans-serif;
+  overscroll-behavior-y: none;
+height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+ font-family: "Rubik", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--primary-color);
+  background: var(--background-color);
+width: 100vw;
+  overflow-x: hidden;
+}
+
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none}
+
+.container{
+width: 100%;
+}
+.attribution{
+  position: fixed;
+  bottom: 0;
+}
+
+.top-bar {
+  background-image: url(/assets/design/images/pattern-bg-desktop.png);
+  background-position: center;
+  background-size: cover;
+  height: 20rem;
+  padding: 2rem;
+  text-align: center;
+  background-repeat: no-repeat;
+width: 100%;
+/* position: relative; */
+}
+
+.top-bar h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 40rem;
+  margin:1rem auto;
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+a.submit {
+  background: var(--accent-color);
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 0 0.8rem 0.8rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+form input{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 auto;
+  max-width: 90%;
+  width: 36rem;
+  margin-right: 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 2px solid var(--secondary-color);
+  border-radius: 0.8rem 0 0 0.8rem;
+  transition: border-color 0.3s ease;
+}
+form input::placeholder{
+  color: var(--DarkGray);
+  font-size: 1.2rem;
+  text-indent: 10px;
+  opacity: 0.5;
+}
+
+a.submit:hover{
+  background:black;
+  cursor: pointer;
+}
+.submit img{
+ margin-inline: auto;
+} 
+
+.complete-address {
+  background: white;
+  color: var(--primary-color);
+  width: 90%;
+  max-width: 80rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem;
+  position: absolute;
+  /* margin: auto; */
+  z-index: 100;
+left: 50%;
+transform:  translateX(-50%);
+margin-top: 2rem;
+}
+
+.address-details {
+  padding: 1rem;
+  border-left: 3px solid var(--accent-color);
+}
+
+.address-type {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;display: block;
+}
+
+.address-unit {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+  
+
+#map {
+  height: calc(100vh - 20rem); /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  position: absolute; /* Remove any layout constraints */
+  bottom: 0;
+  left: 0;
+  z-index: 0; /* Ensure it's behind other content if needed */
+}
+
+
+
+
+
+/* media queries */
+
+@media screen and (max-width: 890px) {
+  .top-bar {
+    height: 15rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .top-bar h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .complete-address {
+    width: 66%;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    padding: 1rem;
+  top: 20%;
+  }
+  
+
+  #map {
+    height: calc(100vh - 15rem); /* Full height minus the top-bar height */
+  }
+}
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+@media screen and (max-width: 480px) {
+  .top-bar {
+    height: 15rem;
+    padding: 1rem;
+  }
+
+  .top-bar h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    width: 100%;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Centers the form horizontally */
+    align-items: center; /* Align items vertically */
+  }
+
+  form input {
+    flex: 1; /* Make the input take up available space */
+    margin: 0;
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem 0 0 0.5rem; /* Rounded left corners */
+    box-sizing: border-box;
+  }
+
+  a.submit {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 0 0.5rem 0.5rem 0; /* Rounded right corners */
+    background-color: #007BFF; /* Example background color */
+    color: white; /* Text color */
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .complete-address {
+    width: 75%;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem auto;
+    left: 50%;
+    top: 12%;
+  }
+
+  .address-details {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .address-unit {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  #map {
+    height: calc(100vh - 15rem); /* Adjust for top-bar height */
+    width: 100%;
+  }
+}
+
+
