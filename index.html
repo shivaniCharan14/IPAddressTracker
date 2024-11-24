@@ -34,7 +34,7 @@
     <script src="scripts/script.js" defer></script>
   </head>
   <body>
-    <div class="container">
+    <main class="container">
       <section class="top-bar">
         <h1>IP Address Tracker</h1>
         <form action="">
@@ -49,24 +49,26 @@
             <img src="./assets/design/images/icon-arrow.svg" alt="icon arrow" />
           </a>
         </form>
-        <li class="complete-address">
-          <div class="address-details">
-            <span class="address-type">IP Address</span>
-            <span class="address-unit"></span>
-          </div>
-          <div class="address-details">
-            <span class="address-type">Location</span>
-            <span class="address-unit"></span>
-          </div>
-          <div class="address-details">
-            <span class="address-type">Timezone</span><br />
-            <span class="address-unit">UTC-</span>
-          </div>
-          <div class="address-details">
-            <span class="address-type">ISP</span>
-            <span class="address-unit"></span>
-          </div>
-        </li>
+        <ul>
+          <li class="complete-address">
+            <div class="address-details">
+              <span class="address-type">IP Address</span>
+              <span class="address-unit"></span>
+            </div>
+            <div class="address-details">
+              <span class="address-type">Location</span>
+              <span class="address-unit"></span>
+            </div>
+            <div class="address-details">
+              <span class="address-type">Timezone</span><br />
+              <span class="address-unit">UTC-</span>
+            </div>
+            <div class="address-details">
+              <span class="address-type">ISP</span>
+              <span class="address-unit"></span>
+            </div>
+          </li>
+        </ul>
       </section>
       <div id="map"></div>
       <!-- <div class="attribution" style="z-index: 10">
@@ -75,6 +77,6 @@
           >Frontend Mentor</a
         >. Coded by <a href="#">Shivani Charan</a>.
       </div> -->
-    </div>
+    </main>
   </body>
 </html>
