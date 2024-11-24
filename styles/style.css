@@ -88,7 +88,7 @@ width: 100%;
 }
 
 .top-bar {
-  background-image: url(../assets/design/images/pattern-bg-desktop.png);
+background-image: url(../assets/design/images/pattern-bg-desktop.png);
   background-position: center;
   background-size: cover;
   height: 20rem;
