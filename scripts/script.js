@@ -31,18 +31,12 @@ async function getLocation(e) {
     }
 
     console.log(ipAddress);
-    const response = await fetch(
+    const response = await axios.get(
       `https://geo.ipify.org/api/v2/country,city?apiKey=${key_1}&ipAddress=${ipAddress}`
     );
 
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status}`);
-    }
+    const data = await response.data;
 
-    const data = await response.json();
-    if (data.code === 422) {
-      alert(data.messages);
-    }
     console.log(data);
     const isp = data.isp;
     const ip = data.ip;
@@ -56,16 +50,19 @@ async function getLocation(e) {
 
     inputVal.value = "";
     const { lat, lng } = data?.location;
+    // update map location
     map.flyTo([lat, lng], 13);
+
     if (marker) map.removeLayer(marker);
-    marker = L.marker([lat, lng], { icon: customIcon });
-    marker.addTo(map);
+    marker = L.marker([lat, lng], { icon: customIcon }).addTo(map);
     marker.on("mouseout", () => {
       marker.bindPopup(`<h3>${city},${region},${region}</h3>`).openPopup();
     });
   } catch (error) {
-    console.error(error);
-    alert("Failed to fetch location data.");
+    console.error("Error fetching location:", error);
+    alert(
+      "Failed to fetch location data. Please check the IP address and try again."
+    );
   }
 }
 
